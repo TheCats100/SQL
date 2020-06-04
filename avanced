@@ -1,0 +1,21 @@
+select name, count(*) nb_joueur 
+      from wizard w 
+      join player p on w.id=p.wizard_id 
+      join team t on t.id=p.team_id 
+      group by team_id
+      order by nb_joueur desc;
+      
+select name
+    from wizard w
+    join player p on w.id=wizard_id
+    join team t on t.id=p.team_id
+    group by team_id
+    having count(*) > 14
+    order by name asc;
+    
+select firstname, lastname
+      from wizard w 
+      join player p on w.id=p.wizard_id 
+      join team t on t.id=p.team_id 
+      where dayofweek(enrollment_date)=2 and name='Gryffindor'
+      order by enrollment_date asc;
