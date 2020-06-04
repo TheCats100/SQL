@@ -3,3 +3,14 @@ SELECT w.lastname lastname, w.firstname firstname, p.role role, t.name team
       RIGHT JOIN wizard w ON w.id=p.wizard_id 
       RIGHT JOIN team t ON t.id=p.team_id 
       ORDER BY team ASC, role ASC, lastname ASC, firstname ASC;
+
+select w.lastname lastname, w.firstname firstname 
+      from wizard w 
+      left join player p on w.id=p.wizard_id 
+      where p.role='seeker' 
+      order by lastname asc, firstname asc;
+      
+select w.lastname lastname, w.firstname firstname 
+      from wizard w 
+      left join player p on w.id=p.wizard_id 
+      where p.wizard_id is null;
