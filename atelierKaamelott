@@ -1,0 +1,35 @@
+select p.firstname, p.lastname, k.name kingdom
+      from person p
+
+select p.firstname, p.lastname, k.name kingdom 
+      from Person p
+      join Kingdom k on k.id=p.kingdom_id;
+    
+select p.firstname, p.lastname, k.name kingdom 
+      from Person p 
+      left join Kingdom k on k.id=p.kingdom_id;
+
+select avg(age) 
+      from Person;
+
+select avg(age) 
+      from Person 
+      where role_id != 3;
+
+select k.name, count(*) from Person p 
+      join Kingdom k on k.id=p.kingdom_id group by name;
+
+select role, avg(age) from Person p
+      join Role r on r.id=p.role_id
+      group by role;
+    
+select firstname, lastname, role, name Kingdom 
+      from Person p 
+      left join Kingdom k on k.id=p.kingdom_id 
+      left join Role r on r.id=p.role_id;
+      
+select k.name 
+      from Person p 
+      join Kingdom k on k.id=p.kingdom_id 
+      group by name 
+      having count(*) >= 2;
